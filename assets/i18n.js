@@ -1,10 +1,11 @@
 $.i18n.translate = function (key, options) {
   var mode = options && options.mode;
+  var $1 = options && options.$1;
   var messages = this().messageStore.messages;
   var override = messages.override && messages.override[key];
   var lang = (mode === 'aat') ? localStorage.getItem("lang") || 'en' : document.documentElement.lang;
   this().locale = lang;
-  return (mode !== 'aat') && override || this(key, options.$1);
+  return (mode !== 'aat') && override || this(key, $1);
 };
 
 Handlebars.registerHelper('t', function (key, $1) {
